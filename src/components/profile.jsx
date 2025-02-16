@@ -6,14 +6,12 @@ const Profile = () => {
   const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
 
-  // Handle logout
   const handleLogout = () => {
-    sessionStorage.removeItem("token"); // Clear session storage
-    setUser(null); // Clear user context
-    navigate("/login"); // Redirect to login page
+    sessionStorage.removeItem("token"); 
+    setUser(null);
+    navigate("/login");
   };
 
-  // If no user is logged in, show login message
   if (!user) {
     return (
       <div className="flex items-center justify-center w-full h-full px-4">

@@ -11,13 +11,12 @@ const GenerateLinks = () => {
     const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
     if (!link) {
-      console.log("Please enter a URL");
+      alert("Please enter a link to shorten!");
       return;
     }
 
     try {
       const response = await axios.post(`${BACKEND_URL}/shorten`, { username: user.username,url: link });
-      console.log(response.data);
       setShortenedLink(response.data);
     } catch (error) {
       console.error("Error generating link:", error);

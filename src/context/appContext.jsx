@@ -9,4 +9,4 @@ const AppProvider = ({ children }) => {
   );
 };
 
-export default AppProvider;  // ✅ Ensure this is a default export
+export default AppProvider;

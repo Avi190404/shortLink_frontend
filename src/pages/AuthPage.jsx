@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const AuthPage = () => {
   const navigate = useNavigate();
-  const [isSignup, setIsSignup] = useState(false); // Toggle Login/Signup
+  const [isSignup, setIsSignup] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [formData, setFormData] = useState({
@@ -28,14 +28,10 @@ const AuthPage = () => {
     }
 
     const response = await axios.post(`${BACKEND_URL}/${isSignup ? "signup" : "login"}`, formData);
-    console.log(response.data);
 
     const token = response.data.token;
     sessionStorage.setItem("token", token);
-    console.log("Token:", token);
     navigate("/");
-
-    alert(`${isSignup ? "Signup" : "Login"} Successful!`);
   };
 
   return (
@@ -49,7 +45,6 @@ const AuthPage = () => {
         </p>
 
         <form onSubmit={handleSubmit} className="mt-6">
-          {/* Username Field (Only for Signup) */}
           {isSignup && (
             <div>
               <label className="block text-sm font-medium text-gray-600 dark:text-gray-300">
@@ -80,7 +75,6 @@ const AuthPage = () => {
             />
           </div>
 
-          {/* Password Field with Toggle */}
           <div className="mt-4 relative">
             <label className="block text-sm font-medium text-gray-600 dark:text-gray-300">
               Password
@@ -102,7 +96,6 @@ const AuthPage = () => {
             </button>
           </div>
 
-          {/* Confirm Password Field (Only for Signup) */}
           {isSignup && (
             <div className="mt-4 relative">
               <label className="block text-sm font-medium text-gray-600 dark:text-gray-300">
@@ -138,7 +131,7 @@ const AuthPage = () => {
           {isSignup ? "Already have an account?" : "Don't have an account?"}{" "}
           <button
             onClick={() => setIsSignup(!isSignup)}
-            className="text-blue-600 hover:underline font-medium"
+            className="text-blue-600 hover:underline font-medium cursor-pointer"
           >
             {isSignup ? "Log In" : "Sign Up"}
           </button>

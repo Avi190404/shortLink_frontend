@@ -10,7 +10,6 @@ const adsPage = () => {
     const fatchData = async (adID) => {
       setLoading(true)
       try{
-        console.log(adID)
         const { data } = await axios.get(`http://localhost:3000/${adID}`)
         window.location.href = data;
         setLoading(false)

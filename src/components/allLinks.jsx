@@ -10,7 +10,6 @@ const AllLinks = () => {
 
   const getAllLinks = async () => {
     try {
-      console.log(user);
       const response = await axios.post(`${BACKEND_URL}/links`, { username: user.username });
       setLinks(response.data);
     } catch (err) {
