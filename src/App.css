@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@import "tailwindcss";
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+/* Light Mode Scrollbar */
+::-webkit-scrollbar-track {
+    background: #e5e7eb; /* Light gray */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3b82f6; /* Tailwind's blue-500 */
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2563eb; /* Tailwind's blue-600 */
+}
+
+/* Dark Mode Scrollbar */
+.dark ::-webkit-scrollbar-track {
+    background: #1e293b; /* Tailwind's slate-800 */
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: #475569; /* Tailwind's slate-500 */
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: #64748b; /* Tailwind's slate-400 */
+}
